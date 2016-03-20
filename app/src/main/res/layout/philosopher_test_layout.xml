@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@android:color/black"
+	>
+
+	<com.mingyi.concurrentprogramming.views.PhilosopherView
+		android:id="@+id/p1"
+		android:layout_width="100dp"
+		android:layout_height="100dp"
+		android:layout_centerHorizontal="true"
+		app:angle="180"
+		/>
+
+	<com.mingyi.concurrentprogramming.views.TableView
+		android:id="@+id/table"
+		android:layout_width="200dp"
+		android:layout_height="200dp"
+		android:layout_below="@id/p1"
+		android:layout_centerHorizontal="true"
+		/>
+
+	<TextView
+		android:id="@+id/lock1"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textColor="@android:color/holo_red_dark"
+		android:text="@string/lock"
+		android:layout_below="@id/p1"
+		android:layout_marginTop="30dp"
+		android:layout_centerHorizontal="true"
+		android:visibility="invisible"
+		/>
+
+	<com.mingyi.concurrentprogramming.views.PhilosopherView
+		android:id="@+id/p5"
+		android:layout_width="100dp"
+		android:layout_height="100dp"
+		android:layout_alignTop="@id/table"
+		app:angle="120"
+		/>
+
+	<TextView
+		android:id="@+id/lock5"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textColor="@android:color/holo_red_dark"
+		android:text="@string/lock"
+		android:layout_toEndOf="@id/p5"
+		android:layout_below="@id/p1"
+		android:layout_marginTop="70dp"
+		android:layout_marginStart="10dp"
+		android:layout_centerHorizontal="true"
+		android:visibility="invisible"
+		/>
+
+
+	<com.mingyi.concurrentprogramming.views.PhilosopherView
+		android:id="@+id/p2"
+		android:layout_width="100dp"
+		android:layout_height="100dp"
+		android:layout_alignTop="@id/table"
+		android:layout_toEndOf="@id/p1"
+		android:layout_marginStart="30dp"
+		app:angle="240"
+		/>
+
+	<TextView
+		android:id="@+id/lock2"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textColor="@android:color/holo_red_dark"
+		android:text="@string/lock"
+		android:layout_toStartOf="@id/p2"
+		android:layout_below="@id/p1"
+		android:layout_marginTop="70dp"
+		android:layout_marginEnd="-20dp"
+		android:layout_centerHorizontal="true"
+		android:visibility="invisible"
+		/>
+
+	<com.mingyi.concurrentprogramming.views.PhilosopherView
+		android:id="@+id/p4"
+		android:layout_width="100dp"
+		android:layout_height="100dp"
+		android:layout_below="@id/p2"
+		android:layout_marginTop="50dp"
+		android:layout_toStartOf="@id/p1"
+		app:angle="45"
+		/>
+
+	<TextView
+		android:id="@+id/lock4"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textColor="@android:color/holo_red_dark"
+		android:text="@string/lock"
+		android:layout_toEndOf="@id/p4"
+		android:layout_above="@id/p4"
+		android:layout_marginBottom="-60dp"
+		android:layout_centerHorizontal="true"
+		android:visibility="invisible"
+		/>
+
+
+	<com.mingyi.concurrentprogramming.views.PhilosopherView
+		android:id="@+id/p3"
+		android:layout_width="100dp"
+		android:layout_height="100dp"
+		android:layout_below="@id/p2"
+		android:layout_marginTop="50dp"
+		android:layout_toEndOf="@id/p1"
+		app:angle="315"
+		/>
+
+	<TextView
+		android:id="@+id/lock3"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:textColor="@android:color/holo_red_dark"
+		android:text="@string/lock"
+		android:layout_toStartOf="@id/p2"
+		android:layout_above="@id/p3"
+		android:layout_marginBottom="-60dp"
+		android:layout_centerHorizontal="true"
+		android:visibility="invisible"
+		/>
+
+	<LinearLayout
+		android:id="@+id/splitLine"
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:background="@android:color/holo_red_dark"
+		android:layout_below="@id/p3"
+		android:orientation="horizontal"
+		/>
+
+	<Button
+		android:id="@+id/start_eat_button"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/begin_eat"
+		android:layout_below="@id/splitLine"
+		/>
+
+	<Button
+		android:id="@+id/crash_button"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/crash"
+		android:layout_below="@id/start_eat_button"
+		/>
+
+	<Button
+		android:id="@+id/lock_eat_button"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/lock_eat"
+		android:layout_below="@id/crash_button"
+		/>
+
+	<Button
+		android:id="@+id/stop_eat_button"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/stop_eat"
+		android:layout_alignParentBottom="true"
+		/>
+
+</RelativeLayout>
