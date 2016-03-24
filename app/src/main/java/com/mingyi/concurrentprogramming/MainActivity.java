@@ -12,7 +12,7 @@ public class MainActivity extends BaseActivity {
 		findViewById(R.id.philosopher_button).setOnClickListener(v -> philosopherButtonClick());
 	}
 
-	//TODO use rxAndroid  instead
+	// // FIXME: 3/25/16 test github account
 	private void philosopherButtonClick() {
 		startActivity(new Intent(this, PhilosopherTestActivity.class));
 	}
