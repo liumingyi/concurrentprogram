@@ -5,13 +5,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.widget.Button;
-import android.widget.TextView;
 import com.meican.android.inject.ViewInject;
 import com.mingyi.concurrentprogramming.model.Chopstick;
 import com.mingyi.concurrentprogramming.model.Philosopher;
 import com.mingyi.concurrentprogramming.model.Philosopher2;
 import com.mingyi.concurrentprogramming.views.PhilosopherView;
-import com.mingyi.concurrentprogramming.views.TableView;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -44,18 +42,6 @@ public class PhilosopherTestActivity extends BaseActivity {
 	@ViewInject(id = R.id.p4) PhilosopherView pv4;
 
 	@ViewInject(id = R.id.p5) PhilosopherView pv5;
-
-	@ViewInject(id = R.id.table) TableView tableView;
-
-	@ViewInject(id = R.id.lock1) TextView lock1;
-
-	@ViewInject(id = R.id.lock2) TextView lock2;
-
-	@ViewInject(id = R.id.lock3) TextView lock3;
-
-	@ViewInject(id = R.id.lock4) TextView lock4;
-
-	@ViewInject(id = R.id.lock5) TextView lock5;
 
 	@Override protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -113,11 +99,6 @@ public class PhilosopherTestActivity extends BaseActivity {
 		pv3.thinking();
 		pv4.thinking();
 		pv5.thinking();
-		//lock1.setVisibility(View.INVISIBLE);
-		//lock2.setVisibility(View.INVISIBLE);
-		//lock3.setVisibility(View.INVISIBLE);
-		//lock4.setVisibility(View.INVISIBLE);
-		//lock5.setVisibility(View.INVISIBLE);
 	}
 
 	Philosopher p1;
@@ -361,14 +342,4 @@ public class PhilosopherTestActivity extends BaseActivity {
 			}
 		}
 	};
-
-	//private void setLockTextViewStatus(TextView lock, int type) {
-	//	if (type == LOCK) {
-	//		lock.setVisibility(View.VISIBLE);
-	//		lock.setText("lock");
-	//	} else if (type == UNLOCK) {
-	//		lock.setVisibility(View.VISIBLE);
-	//		lock.setText("unlock");
-	//	}
-	//}
 }

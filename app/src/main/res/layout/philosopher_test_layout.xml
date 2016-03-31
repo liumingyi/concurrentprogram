@@ -22,18 +22,6 @@
 		android:layout_centerHorizontal="true"
 		/>
 
-	<TextView
-		android:id="@+id/lock1"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:textColor="@android:color/holo_red_dark"
-		android:text="@string/lock"
-		android:layout_below="@id/p1"
-		android:layout_marginTop="30dp"
-		android:layout_centerHorizontal="true"
-		android:visibility="invisible"
-		/>
-
 	<com.mingyi.concurrentprogramming.views.PhilosopherView
 		android:id="@+id/p5"
 		android:layout_width="100dp"
@@ -41,21 +29,6 @@
 		android:layout_alignTop="@id/table"
 		app:angle="120"
 		/>
-
-	<TextView
-		android:id="@+id/lock5"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:textColor="@android:color/holo_red_dark"
-		android:text="@string/lock"
-		android:layout_toEndOf="@id/p5"
-		android:layout_below="@id/p1"
-		android:layout_marginTop="70dp"
-		android:layout_marginStart="10dp"
-		android:layout_centerHorizontal="true"
-		android:visibility="invisible"
-		/>
-
 
 	<com.mingyi.concurrentprogramming.views.PhilosopherView
 		android:id="@+id/p2"
@@ -65,20 +38,6 @@
 		android:layout_toEndOf="@id/p1"
 		android:layout_marginStart="30dp"
 		app:angle="240"
-		/>
-
-	<TextView
-		android:id="@+id/lock2"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:textColor="@android:color/holo_red_dark"
-		android:text="@string/lock"
-		android:layout_toStartOf="@id/p2"
-		android:layout_below="@id/p1"
-		android:layout_marginTop="70dp"
-		android:layout_marginEnd="-20dp"
-		android:layout_centerHorizontal="true"
-		android:visibility="invisible"
 		/>
 
 	<com.mingyi.concurrentprogramming.views.PhilosopherView
@@ -91,20 +50,6 @@
 		app:angle="45"
 		/>
 
-	<TextView
-		android:id="@+id/lock4"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:textColor="@android:color/holo_red_dark"
-		android:text="@string/lock"
-		android:layout_toEndOf="@id/p4"
-		android:layout_above="@id/p4"
-		android:layout_marginBottom="-60dp"
-		android:layout_centerHorizontal="true"
-		android:visibility="invisible"
-		/>
-
-
 	<com.mingyi.concurrentprogramming.views.PhilosopherView
 		android:id="@+id/p3"
 		android:layout_width="100dp"
@@ -113,19 +58,6 @@
 		android:layout_marginTop="50dp"
 		android:layout_toEndOf="@id/p1"
 		app:angle="315"
-		/>
-
-	<TextView
-		android:id="@+id/lock3"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:textColor="@android:color/holo_red_dark"
-		android:text="@string/lock"
-		android:layout_toStartOf="@id/p2"
-		android:layout_above="@id/p3"
-		android:layout_marginBottom="-60dp"
-		android:layout_centerHorizontal="true"
-		android:visibility="invisible"
 		/>
 
 	<LinearLayout

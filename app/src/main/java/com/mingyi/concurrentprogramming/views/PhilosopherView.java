@@ -17,55 +17,61 @@ import com.mingyi.concurrentprogramming.R;
 public class PhilosopherView extends View {
 
 	private static final String TAG = "PhilosopherView";
+
 	private Paint bodyPaint;
 	private Paint handPaint;
 	private Paint handUsedPaint;
-	private int width;
-	private int height;
+
 	private RectF body;
 	private RectF leftHand;
 	private RectF rightHand;
+
+	private int width;
+	private int height;
 	private int angle;
 	private boolean leftHandUsed = false;
 	private boolean rightHandUsed = false;
 
 	public PhilosopherView(Context context) {
 		super(context);
-		//init();
+		initPaints();
 	}
 
 	public PhilosopherView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		//init();
+		initPaints();
+		getAngleFromAttrs(context, attrs);
+	}
 
+	public PhilosopherView(Context context, AttributeSet attrs, int defStyleAttr) {
+		super(context, attrs, defStyleAttr);
+		initPaints();
+		getAngleFromAttrs(context, attrs);
+	}
+
+	private void getAngleFromAttrs(Context context, AttributeSet attrs) {
+		if (attrs == null) {
+			return;
+		}
 		//获取TypedArray，attrs是构造方法中提供的参数
 		TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.PhilosopherView);
 		angle = typedArray.getColor(R.styleable.PhilosopherView_angle, 0);
 		typedArray.recycle();
 	}
 
-	public PhilosopherView(Context context, AttributeSet attrs, int defStyleAttr) {
-		super(context, attrs, defStyleAttr);
-		//init();
-	}
-
 	@Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		if (width == 0 || height == 0) {
 			height = width = MeasureSpec.getSize(widthMeasureSpec);
-			// FIXME: 2/21/16 RelativeLayout 下搞的取值不对
-			//height = MeasureSpec.getSize(heightMeasureSpec);
-			this.setMeasuredDimension(width, height);
-			//Log.d(TAG, "onMeasure - " + width + " ---- " + height);
-			init();
+			int bodySide = width / 2;
+			int handSide = bodySide / 5;
+			body = new RectF(width / 4, height / 4, width / 4 + bodySide, height / 4 + bodySide);
+			leftHand = new RectF(width / 4 - handSide, height / 4, width / 4, bodySide);
+			rightHand = new RectF(width / 4 + bodySide, height / 4, width / 4 + bodySide + handSide, bodySide);
 		}
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 	}
 
-	private void init() {
-		width = getMeasuredWidth();
-		height = getMeasuredHeight();
-		//Log.d(TAG, "" + width + " ---- " + height);
-
+	private void initPaints() {
 		bodyPaint = new Paint();
 		bodyPaint.setColor(Color.RED);
 		bodyPaint.setStyle(Paint.Style.STROKE);
@@ -80,12 +86,6 @@ public class PhilosopherView extends View {
 
 		handUsedPaint = new Paint();
 		handUsedPaint.setColor(Color.RED);
-
-		int bodySide = width / 2;
-		int handSide = bodySide / 5;
-		body = new RectF(width / 4, height / 4, width / 4 + bodySide, height / 4 + bodySide);
-		leftHand = new RectF(width / 4 - handSide, height / 4, width / 4, bodySide);
-		rightHand = new RectF(width / 4 + bodySide, height / 4, width / 4 + bodySide + handSide, bodySide);
 	}
 
 	@Override protected void onDraw(Canvas canvas) {

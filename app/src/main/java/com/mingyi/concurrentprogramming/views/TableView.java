@@ -5,7 +5,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 /**
@@ -15,41 +14,46 @@ import android.view.View;
 public class TableView extends View {
 
 	private static final String TAG = "TableView";
+
+	private Paint tablePaint;
+	private Paint strokePaint;
+	private Paint backgroundPaint;
+
 	private int width;
 	private int height;
 	private int radius;
-	private int chopstickNum = 5;
-	private Paint tablePaint;
-	private Paint strokePaint;
 	private int strokeWidth = 10;
-	private int intersectionAngle;
+
+	private int chopstickNum = 5;
 	private int startAngle;
-	private Paint backgroundPaint;
+	private int intersectionAngle;
 
 	public TableView(Context context) {
 		super(context);
+		initPaints();
 	}
 
 	public TableView(Context context, AttributeSet attrs) {
 		super(context, attrs);
+		initPaints();
 	}
 
 	public TableView(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
+		initPaints();
 	}
 
 	@Override protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		if (width == 0 || height == 0) {
 			height = width = MeasureSpec.getSize(widthMeasureSpec);
 			radius = width / 2 - strokeWidth;
-			this.setMeasuredDimension(width, height);
-			Log.d(TAG, "onMeasure - " + width + " ---- " + height);
-			init();
+			intersectionAngle = 360 / chopstickNum;
+			startAngle = -90 - intersectionAngle / 2;
 		}
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 	}
 
-	private void init() {
+	private void initPaints() {
 		tablePaint = new Paint();
 		tablePaint.setColor(Color.RED);
 		tablePaint.setStyle(Paint.Style.STROKE);
@@ -62,9 +66,6 @@ public class TableView extends View {
 
 		backgroundPaint = new Paint();
 		backgroundPaint.setColor(Color.BLACK);
-
-		intersectionAngle = 360 / chopstickNum;
-		startAngle = -90 - intersectionAngle / 2;
 	}
 
 	@Override protected void onDraw(Canvas canvas) {

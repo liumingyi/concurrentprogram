@@ -3,6 +3,5 @@
 	<string name="begin_eat">开始吃饭</string>
 	<string name="crash">Crash !!!</string>
 	<string name="stop_eat">都别吃了</string>
-	<string name="lock">lock</string>
 	<string name="lock_eat">开始吃饭2</string>
 </resources>
