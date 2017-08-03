@@ -14,18 +14,19 @@ import com.mingyi.concurrentprogramming.utils.Constants;
  */
 public class ConcurrentApplication extends Application {
 
-	private static final String TAG = "ConcurrentApplication";
+  private static final String TAG = "ConcurrentApplication";
 
-	@Override public void onCreate() {
-		super.onCreate();
+  @Override public void onCreate() {
+    super.onCreate();
 
-		WindowManager wm = (WindowManager) getApplicationContext().getSystemService(Context.WINDOW_SERVICE);
-		Display display = wm.getDefaultDisplay();
-		Point size = new Point();
-		display.getSize(size);
-		Constants.screenWidth = size.x;
-		Constants.screenHeight = size.y;
+    WindowManager wm =
+        (WindowManager) getApplicationContext().getSystemService(Context.WINDOW_SERVICE);
+    Display display = wm.getDefaultDisplay();
+    Point size = new Point();
+    display.getSize(size);
+    Constants.screenWidth = size.x;
+    Constants.screenHeight = size.y;
 
-		Log.d(TAG, "" + Constants.screenWidth + " , " + Constants.screenHeight);
-	}
+    Log.d(TAG, "" + Constants.screenWidth + " , " + Constants.screenHeight);
+  }
 }

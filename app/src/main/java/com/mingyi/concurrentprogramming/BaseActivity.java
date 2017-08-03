@@ -12,26 +12,26 @@ import com.meican.android.inject.SmartKnife;
  */
 public class BaseActivity extends Activity {
 
-	public static void initInjectedView(Activity activity) {
-		SmartKnife.bind(activity);
-	}
+  public static void initInjectedView(Activity activity) {
+    SmartKnife.bind(activity);
+  }
 
-	@Override protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-	}
+  @Override protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+  }
 
-	@Override public void setContentView(int layoutResID) {
-		super.setContentView(layoutResID);
-		initInjectedView(this);
-	}
+  @Override public void setContentView(int layoutResID) {
+    super.setContentView(layoutResID);
+    initInjectedView(this);
+  }
 
-	@Override public void setContentView(View view) {
-		super.setContentView(view);
-		initInjectedView(this);
-	}
+  @Override public void setContentView(View view) {
+    super.setContentView(view);
+    initInjectedView(this);
+  }
 
-	@Override public void setContentView(View view, ViewGroup.LayoutParams params) {
-		super.setContentView(view, params);
-		initInjectedView(this);
-	}
+  @Override public void setContentView(View view, ViewGroup.LayoutParams params) {
+    super.setContentView(view, params);
+    initInjectedView(this);
+  }
 }
